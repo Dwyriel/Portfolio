@@ -10,6 +10,7 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
         AngularFireAuthModule,
         AngularFireStorageModule,
         AngularFireDatabaseModule,
+        NgbModule,
     ],
     providers: [
         ScreenTrackingService, UserTrackingService
