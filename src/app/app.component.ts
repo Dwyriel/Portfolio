@@ -27,24 +27,23 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     private PushPlatformInfo() {
-        AppResourcesService.PushAppInfo({
+        this.PushPlatformInfoToService();
+        if (this.windowResizeSubscription && !this.windowResizeSubscription.closed)
+            this.windowResizeSubscription.unsubscribe();
+        this.windowResizeObservable = fromEvent(window, 'resize');
+        this.windowResizeSubscription = this.windowResizeObservable.subscribe(() => {
+            this.PushPlatformInfoToService();
+        });
+    }
+
+    private PushPlatformInfoToService() {
+        const appInfo: AppInfo = {
             innerWidth: window.innerWidth,
             innerHeight: window.innerHeight,
             outerWidth: window.outerWidth,
             outerHeight: window.outerHeight,
             userAgent: navigator.userAgent
-        });
-        if (this.windowResizeSubscription && !this.windowResizeSubscription.closed)
-            this.windowResizeSubscription.unsubscribe();
-        this.windowResizeObservable = fromEvent(window, 'resize');
-        this.windowResizeSubscription = this.windowResizeObservable.subscribe(event => {
-            AppResourcesService.PushAppInfo({
-                innerWidth: window.innerWidth,
-                innerHeight: window.innerHeight,
-                outerWidth: window.outerWidth,
-                outerHeight: window.outerHeight,
-                userAgent: navigator.userAgent
-            });
-        });
+        };
+        AppResourcesService.PushAppInfo(appInfo);
     }
 }

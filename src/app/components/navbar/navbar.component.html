@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container container-fluid">
+        <a class="fs-2 fw-semibold navbar-brand" [routerLink]="'.'">Dwyriel~</a>
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link fs-5" [ngClass]="(activeNavItem == 'home' ? 'text-light' : '')" [routerLink]="'.'" (click)="isMenuCollapsed = true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5" [ngClass]="(activeNavItem == 'examples' ? 'text-light' : '')" [routerLink]="'.'" (click)="isMenuCollapsed = true">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5" [ngClass]="(activeNavItem == 'about' ? 'text-light' : '')" [routerLink]="'.'" (click)="isMenuCollapsed = true">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
