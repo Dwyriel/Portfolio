@@ -6,6 +6,12 @@ import {UserDbService} from "./services/user-db.service";
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Portfolio';
+export class AppComponent implements OnInit {
+    title = 'Portfolio';
+
+    constructor(private userDbService: UserDbService) {
+    }
+
+    async ngOnInit() {
+    }
 }
