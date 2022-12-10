@@ -4,12 +4,13 @@ import {fromEvent, Observable, Subscription} from "rxjs";
 
 import {AppInfo} from "./interfaces/app-info";
 import {AppResourcesService} from "./services/app-resources.service";
+import {routerNames} from "./classes/static-classes";
 
 @Component({
     selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-    title = 'Portfolio';
+    public currentRoute = 'home';
 
     private windowResizeObservable: Observable<Event> | undefined;
     private windowResizeSubscription: Subscription | undefined;

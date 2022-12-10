@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {routerNames} from "../../classes/static-classes";
 
 @Component({
     selector: 'app-navbar',
@@ -7,7 +8,9 @@ import {Component, Input} from '@angular/core';
 })
 export class NavbarComponent {
 
-    @Input('currNavItem') activeNavItem: string = 'home';
+    routerNames = routerNames;
+
+    @Input('current-route') currentRoute: string = 'home';
 
     constructor() {
     }
