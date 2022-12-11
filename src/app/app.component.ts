@@ -1,16 +1,18 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserDbService} from "./services/user-db.service";
 import {fromEvent, Observable, Subscription} from "rxjs";
 
-import {AppInfo} from "./interfaces/app-info";
+import {UserDbService} from "./services/user-db.service";
 import {AppResourcesService} from "./services/app-resources.service";
-import {routerNames} from "./classes/static-classes";
+import {IAppInfo} from "./interfaces/app-info";
+import {RouterNames} from "./classes/static-classes";
 
 @Component({
     selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
     public currentRoute = 'home';
+
+    private appInfo: IAppInfo | undefined;
 
     private windowResizeObservable: Observable<Event> | undefined;
     private windowResizeSubscription: Subscription | undefined;
@@ -38,13 +40,13 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     private PushPlatformInfoToService() {
-        const appInfo: AppInfo = {
+        this.appInfo = {
             innerWidth: window.innerWidth,
             innerHeight: window.innerHeight,
             outerWidth: window.outerWidth,
             outerHeight: window.outerHeight,
             userAgent: navigator.userAgent
         };
-        AppResourcesService.PushAppInfo(appInfo);
+        AppResourcesService.PushAppInfo(this.appInfo);
     }
 }

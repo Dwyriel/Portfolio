@@ -3,4 +3,3 @@ export class RouterNames {
     public example: string = "example";
     public about: string = "about";
 }
-export const routerNames : RouterNames = new RouterNames();

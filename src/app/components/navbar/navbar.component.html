@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-color">
-    <div class="container container-fluid">
+    <div class="container-fluid" [ngClass]="( appInfo.innerWidth > 991 ? 'container' : 'small-nav-margin')">
         <a class="fs-2 fw-semibold navbar-brand" [routerLink]="'.'">Dwyriel~</a>
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
         <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
