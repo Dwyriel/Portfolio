@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
     public routerNames: RouterNames = new RouterNames();
     public appInfo: IAppInfo = new AppInfo();
+    public isLoggedIn: boolean = true;
 
     @Input('current-route') currentRoute: string = 'home';
 
