@@ -13,6 +13,7 @@ import {AppInfo} from "../../classes/app-info";
 })
 export class NavbarComponent implements OnInit, OnDestroy{
 
+    public isMenuCollapsed = true;
     public routerNames: RouterNames = new RouterNames();
     public appInfo: IAppInfo = new AppInfo();
     public isLoggedIn: boolean = true;
@@ -35,6 +36,4 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
     ngOnDestroy() {
     }
-
-    isMenuCollapsed = true;
 }

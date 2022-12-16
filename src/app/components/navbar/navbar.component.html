@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bg-color">
-    <div class="container-fluid" [ngClass]="( appInfo.innerWidth > 991 ? 'container' : 'small-nav-margin')">
+    <div class="container-fluid" [ngClass]="(appInfo.innerWidth > 991 ? 'container' : 'small-nav-margin')">
         <a class="fs-2 fw-semibold navbar-brand" [routerLink]="'.'">Dwyriel~</a>
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
         <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="width: 100%">
                 <li class="nav-item">
                     <a class="nav-link fs-5" [ngClass]="(currentRoute == routerNames.home ? 'text-light' : '')" [routerLink]="'.'" (click)="isMenuCollapsed = true">Home</a>
                 </li>
@@ -13,12 +13,12 @@
                 <li class="nav-item">
                     <a class="nav-link fs-5" [ngClass]="(currentRoute == routerNames.about ? 'text-light' : '')" [routerLink]="'.'" (click)="isMenuCollapsed = true">About</a>
                 </li>
+                <li class="nav-item" [ngClass]="(appInfo.innerWidth > 991 ? 'place-right' : '')">
+                    <a *ngIf="isLoggedIn" type="button" class="text-light fs-5 nav-link">Dwyriel</a>
+                    <a *ngIf="!isLoggedIn" type="button" class="text-light fs-5 nav-link">log in</a>
+                    <a *ngIf="!isLoggedIn" type="button" class="text-light fs-5 nav-link">sign in</a>
+                </li>
             </ul>
-            <div class="text-light place-right fs-5">
-                <a *ngIf="isLoggedIn" type="button" class="text-light fs-5 btn">Dwyriel</a>
-                <a *ngIf="!isLoggedIn" type="button" class="text-light fs-5 btn">log in</a>
-                <a *ngIf="!isLoggedIn" type="button" class="text-light fs-5 btn">sign in</a>
-            </div>
         </div>
     </div>
 </nav>
